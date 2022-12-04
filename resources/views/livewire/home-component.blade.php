@@ -14,7 +14,7 @@
                                     <h2 class="animated fw-900">{{$slide->title}}</h2>
                                     <h1 class="animated fw-900 text-brand">{{$slide->sub_title}}</h1>
                                     <p class="animated">{{$slide->offer}}</p>
-                                    <a class="animated btn btn-brush btn-brush-3" href="{{$slide->link}}"> Shop Now </a>
+                                    <a class="animated btn btn-brush btn-brush-3" href="{{$slide->link}}">იყიდე ახლავე </a>
                                 </div>
                             </div>
                             <div class="col-lg-7 col-md-6">
