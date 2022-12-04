@@ -23,7 +23,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md-6">ახალი კატეგორიის დამატება</div>
+                                    <div class="col-md-6">კატეგორიის განახლება</div>
                                     <div class="col-md-6">
                                         <a href="{{route('admin.categories')}}" class="btn btn-success float-end">ყველა კატეგორია</a>
                                     </div>

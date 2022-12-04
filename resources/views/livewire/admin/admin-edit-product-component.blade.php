@@ -123,12 +123,11 @@
                                     <div class="mb-3 mt-3">
 
                                         <label for="image" class="form-control">პროდუქტის სურათი</label>
-                                        <input type="file" class="form-control" name="image" wire:model="image">
+                                        <input type="file" class="form-control" name="image" wire:model="newImage">
                                         @if($newImage)
-                                            <img src="{{$image->temporaryUrl()}}" style="width: 120px">
+<img src="{{$image->temporaryUrl()}}" width="200px">
                                         @else
-                                            <img src="{{asset('assets/imgs/products/')}}/{{$newImage}}">
-
+                                            <img src="{{asset('assets/imgs/products')}}/{{$image}}">
                                         @endif
                                         @error('image')
                                         <p class="text-danger">{{$message}}</p>
