@@ -19,8 +19,12 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{route('home.index')}}" rel="nofollow">Home</a>
-                    <span></span> Shop
+                    <a href="{{route('home.index')}}" rel="nofollow">მთავარი</a>
+                    <span>
+                         @foreach($categories as $cat)
+                            {{$cat->name}}
+                        @endforeach
+                    </span>
                 </div>
             </div>
         </div>

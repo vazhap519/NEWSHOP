@@ -3,9 +3,9 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="" rel="nofollow">Home</a>
+                    <a href="" rel="nofollow">მთავარი</a>
                     <span></span> Fashion
-                    <span></span> Abstract Print Patchwork Dress
+                    <span></span>
                 </div>
             </div>
         </div>
@@ -19,40 +19,31 @@
                                     <div class="detail-gallery">
                                         <span class="zoom-icon"><i class="fi-rs-search"></i></span>
                                         <!-- MAIN SLIDES -->
-                                        <div class="product-image-slider">
+                                        <div class="product-image-slider" wire:ignore>
                                             <figure class="border-radius-10">
-                                                <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
+                                                <li data-thumb="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}}">
+                                                    <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}" />
+                                                </li>
                                             </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
-                                            </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
-                                            </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
-                                            </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
-                                            </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
-                                            </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
-                                            </figure>
+
                                         </div>
                                         <!-- THUMBNAILS -->
-                                        <div class="slider-nav-thumbnails pl-15 pr-15">
-                                            <div>  <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}"></div>
-                                            <div>  <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}"></div>
-                                            <div>  <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}"></div>
-                                            <div>  <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}"></div>
-                                            <div>  <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}"></div>
-                                            <div>  <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}"></div>
-                                            <div>  <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}"></div>
-                                        </div>
+                                        <ul class="slider-nav-thumbnails pl-15 pr-15">
+                                            @php
+                                                $images = explode(",",$product->images);
+                                            @endphp
+                                            @foreach($images as $image)
+                                                @if($image)
+                                                    <li data-thumb="{{asset('/assets/imgs/products')}}/{{$image}}">
+                                                        <img src="{{asset('/assets/imgs/products')}}/{{$image}}" alt=\"{{$product->name}}" />
+                                                    </li>
+                                                @endif
+                                            @endforeach
+
+                                        </ul>
                                     </div>
+
+
                                     <!-- End Gallery -->
                                     <div class="social-icons single-share">
                                         <ul class="text-grey-5 d-inline-block">

@@ -347,7 +347,7 @@
                                             <li><a href="{{route('admin.dashboard')}}">დეშბორდი</a></li>
                                             <li><a href="{{route('admin.products')}}">პროდუქტები</a></li>
                                             <li><a href="{{route('admin.categories')}}">კატეგორიები</a></li>
-                                            <li><a href="{{route('admin.home.slider')}}">სლაიდერი</a></li>
+                                            <li><a href="{{route('admin.home.slider')}}">სლაიდები</a></li>
 
                                             <li><a href="#">Logout</a></li>
                                         </ul>

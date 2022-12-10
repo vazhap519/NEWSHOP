@@ -24,10 +24,10 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        კატეგორიები
+                                        სლაიდები
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="{{route('admin.home.slider.add')}}" class="btn btn-primary float-end">სლაიდების დამატება</a>
+                                        <a href="{{route('admin.home.slider.add')}}" class="btn btn-primary float-end">შექმენი ახალი სლაიდი</a>
                                     </div>
                                 </div>
                             </div>
@@ -39,14 +39,14 @@
                                     <thead>
                                     <tr>
                                         <td>#</td>
-                                        <td>სურათი</td>
-                                        <td>ზედა სათაური</td>
-                                        <td>სათაური</td>
-                                        <td>ქვე-სათაური</td>
-                                        <td>შეთავაზება</td>
-                                        <td>ლინკი</td>
-                                        <td>სტატუსი</td>
-                                        <td>მოქმედება</td>
+                                        <td> სლაიდერის ზედა აღწერა</td>
+                                        <td>სლაიდერის  აღწერა</td>
+                                        <td>სლაიდერის  ქვედა აღწერა</td>
+                                        <td>სლაიდერის შეთავაზება</td>
+                                        <td>სლაიდერის ბმული</td>
+                                        <td>სლაიდერის სურათი</td>
+                                        <td>სლაიდერის სტატუსი</td>
+{{--                                        <td>მოქმედება</td>--}}
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -56,18 +56,18 @@
                                     @foreach($slides as $slide)
                                         <tr>
                                             <td>{{++$i}}</td>
-                                            <td><img src="{{asset('/assets/imgs/slider')}}/{{$slide->image}}" width="80"></td>
                                             <td>{{$slide->top_title}}</td>
                                             <td>{{$slide->title}}</td>
                                             <td>{{$slide->sub_title}}</td>
                                             <td>{{$slide->offer}}</td>
                                             <td>{{$slide->link}}</td>
-                                            <td>{{$slide->name}}</td>
-                                            <td>{{$slide->status==1  ? 'Active':'Inactive'}}</td>
+                                            <td><img src="{{asset('assets/imgs/slider')}}/{{$slide->image}}" width="100"></td>
+                                            <td>{{$slide->status==1 ? 'Active':'Inactive'}}</td>
                                             <td>
-                                                <a href="{{route('admin.home.slider.edit',['slider_id'=>$slide->id])}}" class="text-info">განახლება</a>
+                                                <a href="{{route('admin.home.slider.edit',['slide_id'=>$slide->id])}}" class="text-info">განახლება</a>
                                                 <a href="#" class="text-danger" style="margin-left: 20px" onclick="deleteConfirmation('{{$slide->id}}')">წაშლა</a>
                                             </td>
+
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -87,7 +87,7 @@
             <div class="modal-body pb-30 pt-30">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h4 class="pb-3">დარმუნებული ხარ რომ გნებავს წაშალო კატეგორია?</h4>
+                        <h4 class="pb-3">დარმუნებული ხარ რომ გნებავს წაშალო სლაიდი?</h4>
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteConfirmation">გაუქმება</button>
                         <button class="btn btn-danger" onclick="deleteSlide()">წაშლა</button>
                     </div>
@@ -104,7 +104,7 @@
 @push('scripts')
     <script>
         function deleteConfirmation(id){
-        @this.set ( 'slide_id', id );
+        @this.set ( 'slide_id' , id );
             $('#deleteConfirmation').show();
         }
 

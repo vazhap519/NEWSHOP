@@ -8,8 +8,11 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
+
 class AdminAddProductComponent extends Component
 {
+    use WithPagination;
     use WithFileUploads;
     public $name;
     public $slug;
@@ -22,6 +25,7 @@ class AdminAddProductComponent extends Component
     public $featured=0;
     public $quantity;
     public $image;
+    public $images;
     public $category_id;
 
     public function generateSlug(){
@@ -40,10 +44,12 @@ $this->validate([
     'featured'=>'required',
     'quantity'=>'required',
     'image'=>'required',
+    'images'=>'required',
     'category_id'=>'required',
 ]);
 
         $product=new Product();
+//        dd($product->images=$this->images);    dd($product->images=$this->images);
         $product->name=$this->name;
         $product->slug=$this->slug;
         $product->short_description=$this->short_description;
@@ -64,8 +70,8 @@ $this->validate([
     }
     public function render()
     {
-        $products=Product::orderBy('name','DSC');
-        $categories=Category::orderBy('name','ASC')->get()->paginate(5);
-        return view('livewire.admin.admin-add-product-component',['products'=>$products,'categories'=>$categories]);
+        $products=Product::orderBy('name','ASC');
+        $categories=Category::orderBy('name','ASC')->get();
+        return view('livewire.admin.admin-add-product-component',['products'=>$products,'categories'=>$categories,]);
     }
 }

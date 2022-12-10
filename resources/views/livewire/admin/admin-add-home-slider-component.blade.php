@@ -23,7 +23,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md-6">ახალი სლაიდის  დამატება</div>
+                                    <div class="col-md-6">ახალი სლაიდის დამატება</div>
                                     <div class="col-md-6">
                                         <a href="{{route('admin.home.slider')}}" class="btn btn-success float-end">ყველა სლაიდი</a>
                                     </div>
@@ -33,68 +33,66 @@
                                 @if(Session::has('message'))
                                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                 @endif
-                                <form wire:submit.prevent="addSlide">
+                                <form wire:submit.prevent="AddSlide()">
                                     <div class="mb-3 mt-3">
-                                        <label class="form-control">ზედა-აღწერა</label>
-                                        <input type="text"  placeholder="ჩაწერე სლაიდერის ზედა აღწერა" wire:model="top_title" >
+                                        <label for="top_title" class="form-control">ზედა_აღწერა</label>
+                                        <input type="text" name="top_title" placeholder="ჩაწერე სლაიდის ზედა_აღწერა " wire:model="top_title">
                                         @error('top_title')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
 
                                     <div class="mb-3 mt-3">
-                                        <label class="form-control">აღწერა</label>
-                                        <input type="text"  placeholder="ჩაწერე სლაიდერის აღწერა" wire:model="title" >
+                                        <label for="title" class="form-control">აღწერა</label>
+                                        <input type="text" name="title" placeholder="ჩაწერე სლაიდის  აღწერა" wire:model="title">
                                         @error('title')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-
                                     <div class="mb-3 mt-3">
-                                        <label class="form-control">ქვედა-აღწერა</label>
-                                        <input type="text"  placeholder="ჩაწერე სლაიდერის ქვედა აღწერა" wire:model="sub_title" >
+                                        <label for="sub_title" class="form-control">ქვედა_აღწერა</label>
+                                        <input type="text" name="sub_title" placeholder="ჩაწერე სლაიდის ქვედა_აღწერა" wire:model="sub_title">
                                         @error('sub_title')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-
                                     <div class="mb-3 mt-3">
-                                        <label class="form-control">შეთავაზება</label>
-                                        <input type="text"  placeholder="ჩაწერე სლაიდერის  შეთავაზება" wire:model="offer" >
+                                        <label for="offer" class="form-control">შეთავაზება</label>
+                                        <input type="text" name="offer" placeholder="ჩაწერე სლაიდის შეთავაზება" wire:model="offer">
                                         @error('offer')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-
                                     <div class="mb-3 mt-3">
-                                        <label class="form-control">პროდუქტის ბმული</label>
-                                        <input type="text"  placeholder="ჩაწერე პროდუქტის ბმული აღწერა" wire:model="link" >
+                                        <label for="link" class="form-control">პროდუქტის ბმული </label>
+                                        <input type="text" name="link" placeholder="ჩაწერე სლაიდის ბმული" wire:model="link">
                                         @error('link')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
+
+
                                     <div class="mb-3 mt-3">
-                                        <label class="form-control">სურათი</label>
-                                        <input type="file"  wire:model="image">
-                                        @if($image)
-                                            <img src="{{$image->temporaryUrl()}}">
+                                        <label for="status" class="form-control">სლაიდის სურათი </label>
+                                 <input type="file" name="image" wire:model="image">
+@if($image)
+    <img src="{{$image->temporaryUrl()}}" width="100px">
                                         @endif
                                         @error('image')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
-                                        <label class="form-control">სტატუსი</label>
-                                      <select wire:model="status">
-                                          <option value="0">არაქტიური</option>
-                                          <option value="1">აქტიური</option>
-                                      </select>
+                                        <label for="status" class="form-control">სლაიდის სტატუსი </label>
+                                        <select name="status" wire:model="status">
+                                            <option value="1">აქტიური</option>
+                                            <option value="0">არააქტიური</option>
+                                        </select>
                                         @error('status')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-
-                                    <button type="submit" class="btn btn-primary float-end">სლაიდის დამატება</button>
+                                    <button type="submit" class="btn btn-primary float-end">სლაიდის  შექმნა</button>
                                 </form>
                             </div>
                         </div>
