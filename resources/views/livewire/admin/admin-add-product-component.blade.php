@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="image" class="form-control">პროდუქტის გალერეა</label>
-                                        <input type="file" class="form-control" name="images" wire:model="images" multiple>
+                                        <input type="file" class="form-control" name="images[]" wire:model="images[]" multiple>
                                         @if($images)
                                         @foreach($images as $gallery)
                                         <img src="{{$gallery->temporaryUrl()}}" style="width: 120px">
