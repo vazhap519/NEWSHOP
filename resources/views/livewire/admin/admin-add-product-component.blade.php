@@ -33,7 +33,7 @@
                                 @if(Session::has('message'))
                                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                 @endif
-                                <form wire:submit.prevent="addProduct">
+                                <form wire:submit.prevent="addProduct" enctype="multipart/form-data">
                                     <div class="mb-3 mt-3">
                                         <label for="name" class="form-control">სახელი</label>
                                         <input type="text" name="name" placeholder="ჩაწერე პროდუქტის სახელი" wire:model="name" wire:keyup="generateSlug">
@@ -121,7 +121,6 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
-
                                         <label for="image" class="form-control">პროდუქტის სურათი</label>
                                         <input type="file" class="form-control" name="image" wire:model="image">
                                         @if($image)
@@ -131,7 +130,19 @@
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-
+                                    <div class="mb-3 mt-3">
+                                        <label for="image" class="form-control">პროდუქტის გალერეა</label>
+                                        <input type="file" class="form-control" name="images" wire:model="images" multiple>
+                                        @if($images)
+                                        @foreach($images as $gallery)
+                                        <img src="{{$gallery->temporaryUrl()}}" style="width: 120px">
+                                        @endforeach
+                                            
+                                        @endif
+                                        @error('images')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
                                     <div class="mb-3 mt-3">
                                         <label for="category_id" class="form-control">პროდუქტის კატეგორია</label>
                                         <select class="form-control" name="category_id" wire:model="category_id">
