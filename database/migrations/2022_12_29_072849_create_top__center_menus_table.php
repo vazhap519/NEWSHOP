@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('top_menu', function (Blueprint $table) {
+        Schema::create('top__center_menus', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('meta_description');
             $table->boolean('status')->default(0);
             $table->timestamps();
+       
         });
     }
 
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('top_menu');
+        Schema::dropIfExists('top__center_menus');
     }
 };
