@@ -9,7 +9,9 @@ class AdminTopCenterMenuComponent extends Component
 {
     public function render()
     {
+      
         $top_center_menu=Top_Center_menu::orderBy('created_at','ASC');
+dd( $top_center_menu);
         return view('livewire.admin.admin-top-center-menu-component',['top_center_menu'=>$top_center_menu]);
     }
 }

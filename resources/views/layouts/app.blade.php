@@ -277,9 +277,9 @@
                         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                             <nav>
                                 <ul>
-                                    @foreach ($top_menu as $top_menu_items)
+                                  
                                     <li><a class="active" href="{{route('home.index')}}">Home </a></li>
-                                    @endforeach
+
                                     {{-- <li><a class="active" href="{{route('home.index')}}">Home </a></li> --}}
                                  
                                  

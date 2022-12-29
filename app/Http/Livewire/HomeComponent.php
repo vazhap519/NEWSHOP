@@ -13,7 +13,7 @@ class HomeComponent extends Component
         $slides=HomeSlider::orderBy('created_at','DESC')->get();
         $lproduct=Product::orderBy('created_at','DESC')->get()->take(8);
         $fproducts=Product::where('featured',1)->inRandomOrder()->get()->take(8);
-        $top_menu=Top_Center_menu::orderBy('created_at','ASC');
+        $top_menu=new Top_Center_menu();
         return view('livewire.home-component',['slides'=>$slides,'lproduct'=>$lproduct,'fproducts'=>$fproducts,'top_menu'=>$top_menu]);
     }
 }

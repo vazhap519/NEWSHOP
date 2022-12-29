@@ -51,20 +51,21 @@
                                     </thead>
                                     <tbody>
                                     @php
-                                        $i=($products->currentPage()-1)*$products->perPage();
+                                        $i=($top_menu->currentPage()-1)*$top_menu->perPage();
                                     @endphp
-                                    @foreach($products as $product)
+                                    @foreach($top_menu as $top)
                                         <tr>
                                             <td>{{++$i}}</td>
-                                            <td> <img class="default-img" src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}" style="width: 120px"></td>
-                                            <td>{{$product->name}}</td>
-                                            <td>{{$product->stock_status}}</td>
-                                            <td>{{$product->regular_price}}</td>
-                                            <td>{{$product->category->name}}</td>
-                                            <td>{{$product->created_at}}</td>
+                                            <td>{{$top->name}}</td>
+                                            <td>{{$top->slug}}</td>
+                                            <td>{{$top->link}}</td>
+                                            <td>{{$top->meta_keywoards}}</td>
+                                            <td>{{$top->meta_description}}</td>
+                                            <td>{{$top->meta_description}}</td>
+                                            {{$slide->status==1 ? 'Active':'Inactive'}}
                                             <td>
-                                                <a href="{{route('admin.products.edit',['product_id'=>$product->id])}}" class="text-info">განახლება</a>
-                                                <a href="#" class="text-danger" style="margin-left: 20px" onclick="deleteConfirmation('{{$product->id}}')">წაშლა</a>
+                                                <a href="{{route('/admin/topmenu',['topmenu'=>$top->id])}}" class="text-info">განახლება</a>
+                                                <a href="#" class="text-danger" style="margin-left: 20px" onclick="deleteConfirmation('{{$top->id}}')">წაშლა</a>
                                             </td>
                                         </tr>
                                     @endforeach
