@@ -50,7 +50,7 @@ public $max_value=5000;
     {
         if($this->OrderBy=='Price: Low to High'){
             $products=Product::whereBetween('regular_price',[$this->min_value,$this->max_value])->OrderBy('regular_price','ASC')->paginate($this->pageSize);
-        }elseif ($this->OrderBy=='Price: High to Low'){
+        }elseif ($this->OrderBy=='Price: High to LowPrice: High to Low'){
             $products=Product::whereBetween('regular_price',[$this->min_value,$this->max_value])->OrderBy('regular_price','DESC')->paginate($this->pageSize);
         }elseif ($this->OrderBy=='Sort by Newness'){
             $products=Product::whereBetween('regular_price',[$this->min_value,$this->max_value])->OrderBy('created_at','DESC')->paginate($this->pageSize);

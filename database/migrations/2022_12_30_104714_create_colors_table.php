@@ -13,15 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('top_menu', function (Blueprint $table) {
+        Schema::create('colors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->string('link');
-            $table->string('meta_name');
-            $table->string('meta_keywoards');
-            $table->string('meta_description');
-            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('top_menu');
+        Schema::dropIfExists('colors');
     }
 };

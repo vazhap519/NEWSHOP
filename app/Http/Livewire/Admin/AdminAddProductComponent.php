@@ -25,7 +25,7 @@ class AdminAddProductComponent extends Component
     public $featured=0;
     public $quantity;
     public $image;
-    public $images=[];
+//    public $images=[];
     public $category_id;
 
     public function generateSlug(){
@@ -44,7 +44,7 @@ $this->validate([
     'featured'=>'required',
     'quantity'=>'required',
     'image'=>'required',
-    'images'=>'required',
+//    'images'=>'required',
     'category_id'=>'required',
 ]);
 
@@ -64,11 +64,11 @@ $this->validate([
         $this->image->storeAs('products',$imageName);
         $product->image=$imageName;
 
-        foreach($this->images as $key=>$image){
-            $newImage=Carbon::now()->timestamp.$key.'.'.$this->images[$key]->extention();
-            $this->images[$key]->storeAs('products/gallery',$newImage);
-            $product->images=$newImage;
-        }
+//        foreach($this->images as $key=>$image){
+//            $newImage=Carbon::now()->timestamp.$key.'.'.$this->images[$key]->extention();
+//            $this->images[$key]->storeAs('products/gallery',$newImage);
+//            $product->images=$newImage;
+//        }
 
         $product->category_id=$this->category_id;
         $product->save();
