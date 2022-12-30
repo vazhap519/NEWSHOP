@@ -43,7 +43,11 @@ Route::middleware(['auth','authAdmin'])->group(function (){
     Route::get('/admin/slider/',\App\Http\Livewire\Admin\AdminHomeSliderComponent::class)->name('admin.home.slider');
     Route::get('/admin/slider/add',\App\Http\Livewire\Admin\AdminAddHomeSliderComponent::class)->name('admin.home.slider.add');
     Route::get('/admin/slider/edit/{slider_id}',\App\Http\Livewire\Admin\AdminEditHomeSliderComponent::class)->name('admin.home.slider.edit');
+<<<<<<< HEAD
 
+=======
+    Route::get('/admin/topmenu',\App\Http\Livewire\Admin\AdminTopCenterMenuComponent::class)->name('admin.topmenu');
+>>>>>>> 6a89ec9c990e9f1d67c65b8f22e81888cea4f908
 });
 
 
