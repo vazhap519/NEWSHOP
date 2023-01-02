@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-<<<<<<<< HEAD:database/migrations/2022_12_30_104714_create_colors_table.php
         Schema::create('colors', function (Blueprint $table) {
-========
-        Schema::create('top__center_menus', function (Blueprint $table) {
->>>>>>>> 6a89ec9c990e9f1d67c65b8f22e81888cea4f908:database/migrations/2022_12_29_072849_create_top__center_menus_table.php
+
             $table->id();
+            $table->string('color_name');
+            $table->string('color_code');
+            $table->boolean('stock')->default(0);
             $table->timestamps();
-       
         });
     }
 
@@ -31,10 +30,8 @@ return new class extends Migration
      */
     public function down()
     {
-<<<<<<<< HEAD:database/migrations/2022_12_30_104714_create_colors_table.php
+
         Schema::dropIfExists('colors');
-========
-        Schema::dropIfExists('top__center_menus');
->>>>>>>> 6a89ec9c990e9f1d67c65b8f22e81888cea4f908:database/migrations/2022_12_29_072849_create_top__center_menus_table.php
+
     }
 };

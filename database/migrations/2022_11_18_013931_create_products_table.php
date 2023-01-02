@@ -26,10 +26,17 @@ return new class extends Migration
             $table->boolean('featured')->default(false);
             $table->unsignedInteger('quantity')->default('10');
             $table->string('image');
-            $table->text('images')->nullable();
+            $table->text('images');
+
+            $table->string('meta_name')->unique();
+            $table->text('meta_description')->unique();
+            $table->string('meta_keywoards')->unique();
             $table->bigInteger('category_id')->unsigned()->nullable();
-            $table->timestamps();
+            $table->bigInteger('colors_id')->unsigned()->nullable();
+            $table->foreign('colors_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->timestamps();
+
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use App\Models\Colors;
 use App\Models\Product;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -25,8 +26,11 @@ class AdminAddProductComponent extends Component
     public $featured=0;
     public $quantity;
     public $image;
-//    public $images=[];
+    public $images=[];
     public $category_id;
+public $meta_name;
+public $meta_description;
+public $meta_keywoards;
 
     public function generateSlug(){
         $this->slug=Str::slug($this->name);
@@ -44,12 +48,14 @@ $this->validate([
     'featured'=>'required',
     'quantity'=>'required',
     'image'=>'required',
-//    'images'=>'required',
+    'images.*'=>'required',
     'category_id'=>'required',
+    'meta_name'=>'require',
+    'meta_description'=>'require',
+    'meta_keywoards'=>'require',
 ]);
 
         $product=new Product();
-//        dd($product->images=$this->images);    dd($product->images=$this->images);
         $product->name=$this->name;
         $product->slug=$this->slug;
         $product->short_description=$this->short_description;
@@ -63,14 +69,14 @@ $this->validate([
         $imageName=Carbon::now()->timestamp.'.'.$this->image->extension();
         $this->image->storeAs('products',$imageName);
         $product->image=$imageName;
-
-//        foreach($this->images as $key=>$image){
-//            $newImage=Carbon::now()->timestamp.$key.'.'.$this->images[$key]->extention();
-//            $this->images[$key]->storeAs('products/gallery',$newImage);
-//            $product->images=$newImage;
-//        }
+foreach ($this->images as $img){
+    $img->store('products/products_gallery');
+}
 
         $product->category_id=$this->category_id;
+         $product->meta_name=$this->meta_name;
+         $product->meta_description=$this->meta_description;
+        $product->meta_keywoards=$this->meta_keywoards;
         $product->save();
         session()->flash('message','პროდუქტი დაემატა');
         return redirect()->route('admin.products');
