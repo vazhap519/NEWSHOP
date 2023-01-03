@@ -23,9 +23,11 @@ class AdminEditProductComponent extends Component
     public $featured=0;
     public $quantity;
     public $image;
-  public $images=[];
+//  public $images=[];
     public $category_id;
     public $newImage;
+
+
     public function generateSlug(){
         $this->slug=Str::slug($this->name);
     }
@@ -61,6 +63,7 @@ class AdminEditProductComponent extends Component
             'image'=>'required',
             'images'=>'required',
             'category_id'=>'required',
+
         ]);
         $product=Product::find($this->product_id);
         $product->name=$this->name;
@@ -79,10 +82,7 @@ class AdminEditProductComponent extends Component
             $this->newImage->storeAs('products',$imageName);
             $product->image=$imageName;
         }
-            foreach($this->images as $key=>$image){
-                $newImage=Carbon::now()->timestamp.$key.'.'.$this->images[$key]->extention();
-                $this->images[$key]->storeAs('products/gallery',$newImage);
-            }
+
 
         $product->category_id=$this->category_id;
         $product->save();

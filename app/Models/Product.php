@@ -23,14 +23,10 @@ class Product extends Model
         'category_id',
         'meta_name',
         'meta_description',
-        'meta_keywoards'
-
+        'meta_keywoards',
         ];
 public function category(){
     return $this->belongsTo(Category::class,'category_id');
-}
-public function Colors(){
-    return $this->belongsTo(Colors::class,'colors_id');
 }
 
 }

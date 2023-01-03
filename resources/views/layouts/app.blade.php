@@ -13,6 +13,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{asset('./assets/imgs/theme/favicon.ico')}}">
 <link rel="stylesheet" href="{{asset('/assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('/assets/css/custom.css')}}">
+<link rel="stylesheet" href="{{asset('/assets/css/slick-theme.css')}}">
+<link rel="stylesheet" href="{{asset('/assets/css/slick.css')}}">
     @livewireStyles
 </head>
 <body>
@@ -277,12 +279,12 @@
                         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                             <nav>
                                 <ul>
-                                  
+
                                     <li><a class="active" href="{{route('home.index')}}">Home </a></li>
 
                                     {{-- <li><a class="active" href="{{route('home.index')}}">Home </a></li> --}}
-                                 
-                                 
+
+
                                     @auth
                                     <li><a href="#">ჩემი ექაუნთი<i class="fi-rs-angle-down"></i></a>
                                             @if(Auth::user()->utype=='admin')

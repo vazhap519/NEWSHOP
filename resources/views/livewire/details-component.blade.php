@@ -19,28 +19,33 @@
                                     <div class="detail-gallery">
                                         <span class="zoom-icon"><i class="fi-rs-search"></i></span>
                                         <!-- MAIN SLIDES -->
-                                        <div class="product-image-slider" wire:ignore>
+                                        <div class="product-image-slider">
                                             <figure class="border-radius-10">
-                                                <li data-thumb="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}}">
+                                                <li class="product-image-slider_li">
                                                     <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}" />
                                                 </li>
                                             </figure>
 
                                         </div>
                                         <!-- THUMBNAILS -->
-                                        <ul class="slider-nav-thumbnails pl-15 pr-15">
+                                        <ul class="slider-nav-thumbnails pl-15 pr-15 thumbn">
+
                                             @php
                                                 $images = explode(",",$product->images);
+
                                             @endphp
+
                                             @foreach($images as $image)
+
                                                 @if($image)
-                                                    <li data-thumb="{{asset('/assets/imgs/products')}}/{{$image}}">
-                                                        <img src="{{asset('/assets/imgs/products')}}/{{$image}}" alt=\"{{$product->name}}" />
+                                                    <li data-thumb="{{asset('/assets/imgs/products/products_gallery')}}/{{$image}}">
+                                                        <img src="{{asset('/assets/imgs/products/products_gallery')}}/{{$image}}">
                                                     </li>
                                                 @endif
                                             @endforeach
 
                                         </ul>
+
                                     </div>
 
 

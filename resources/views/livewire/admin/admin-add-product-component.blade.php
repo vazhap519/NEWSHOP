@@ -132,25 +132,34 @@
                                     </div>
 
 
+{{--                                    <div class="mb-3 mt-3">--}}
+{{--                                        <form enctype="multipart/form-data">--}}
+{{--                                        <label for="image" class="form-control">პროდუქტის გალერეა</label>--}}
+{{--                                            <input type="file" class="form-control" name="images" wire:model="images" >--}}
+{{--                                            @if($images)--}}
+{{--                                                <img src="{{$images->temporaryUrl()}}" style="width: 120px">--}}
+{{--                                            @endif--}}
+
+{{--                                            @error('images')--}}
+{{--                                            <p class="text-danger">{{$message}}</p>--}}
+{{--                                            @enderror--}}
+{{--                                     --}}
+{{--                                        </form>--}}
+{{--                                    </div>--}}
+
                                     <div class="mb-3 mt-3">
-                                        <form enctype="multipart/form-data">
-                                        <label for="image" class="form-control">პროდუქტის გალერეა</label>
-                                        <input type="file" class="form-control"  wire:model="images" multiple>
+                                        <label for="images" class="form-control">პროდუქტის სურათი</label>
+                                        <input type="file" class="form-control" name="images" wire:model="images" multiple>
+                                        @if($images)
+                                            @foreach($images as $image)
+                                                <img src="{{$image->temporaryUrl()}}" style="width: 120px">
+                                            @endforeach
 
-                                            @if ($images)
-                                                @foreach($images as $img)
-                                                    <img src="{{$img->temporaryUrl()}}" style="width: 120px">
-                                                @endforeach
-
-                                            @endif
-
-                                        @error('images.*')
+                                        @endif
+                                        @error('images')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
-                                        </form>
                                     </div>
-
-
 
                                     <div class="mb-3 mt-3">
                                         <label for="category_id" class="form-control">პროდუქტის კატეგორია</label>
@@ -167,21 +176,21 @@
                                     </div>
                                                                         <div class="mb-3 mt-3">
                                                                             <label for="meta_name" class="form-control"> მეტა სახელი</label>
-                                                                            <input type="text" id="meta_name" whire:model="meta_name">
+                                                                            <input type="text" id="meta_name" wire:model="meta_name">
                                                                             @error('meta_name')
                                                                             <p class="text-danger">{{$message}}</p>
                                                                             @enderror
                                                                         </div>
                                     <div class="mb-3 mt-3">
                                         <label for="meta_description" class="form-control"> მეტა აღხწერა</label>
-                                        <textarea type="text" id="meta_description" whire:model="meta_description"></textarea>
+                                        <textarea type="text" id="meta_description" wire:model="meta_description"></textarea>
                                         @error('meta_description')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="meta_keywoards" class="form-control"> მეტა სიტყვები</label>
-                                        <input type="text" id="meta_name" whire:model="meta_keywoards"></input>
+                                        <input type="text" id="meta_name" wire:model="meta_keywoards"></input>
                                         @error('meta_keywoards')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror

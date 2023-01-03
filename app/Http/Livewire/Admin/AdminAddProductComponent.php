@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
-use App\Models\Colors;
 use App\Models\Product;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -26,7 +25,7 @@ class AdminAddProductComponent extends Component
     public $featured=0;
     public $quantity;
     public $image;
-    public $images=[];
+    public $images;
     public $category_id;
 public $meta_name;
 public $meta_description;
@@ -35,7 +34,9 @@ public $meta_keywoards;
     public function generateSlug(){
         $this->slug=Str::slug($this->name);
     }
+
     public function addProduct(){
+//        dd($this->images);
 $this->validate([
     'name'=>'required',
     'slug'=>'required',
@@ -50,12 +51,13 @@ $this->validate([
     'image'=>'required',
     'images.*'=>'required',
     'category_id'=>'required',
-    'meta_name'=>'require',
-    'meta_description'=>'require',
-    'meta_keywoards'=>'require',
+    'meta_name'=>'required',
+    'meta_description'=>'required',
+    'meta_keywoards'=>'required',
 ]);
 
         $product=new Product();
+
         $product->name=$this->name;
         $product->slug=$this->slug;
         $product->short_description=$this->short_description;
@@ -66,17 +68,27 @@ $this->validate([
         $product->stock_status=$this->stock_status;
         $product->featured=$this->featured;
         $product->quantity=$this->quantity;
+        $product->meta_name=$this->meta_name;
+        $product->meta_description=$this->meta_description;
+        $product->meta_keywoards=$this->meta_keywoards;
         $imageName=Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->storeAs('products',$imageName);
+        $this->image->storeAs('products/products/products_gallery',$imageName);
         $product->image=$imageName;
-foreach ($this->images as $img){
-    $img->store('products/products_gallery');
+
+
+if ($this->images){
+    $imagesname='';
+
+    foreach ($this->images as $key=>$image){
+
+        $imgName=Carbon::now()->timestamp.$key.'.'.$image->extension();
+        $image->storeAs('products/products_gallery',$imgName);
+        $imagesname=$imagesname.','.$imgName;
+    }
+    $product->images=$imagesname;
 }
 
         $product->category_id=$this->category_id;
-         $product->meta_name=$this->meta_name;
-         $product->meta_description=$this->meta_description;
-        $product->meta_keywoards=$this->meta_keywoards;
         $product->save();
         session()->flash('message','პროდუქტი დაემატა');
         return redirect()->route('admin.products');
@@ -85,6 +97,6 @@ foreach ($this->images as $img){
     {
         $products=Product::orderBy('name','ASC');
         $categories=Category::orderBy('name','ASC')->get();
-        return view('livewire.admin.admin-add-product-component',['products'=>$products,'categories'=>$categories,]);
+        return view('livewire.admin.admin-add-product-component',['products'=>$products,'categories'=>$categories]);
     }
 }

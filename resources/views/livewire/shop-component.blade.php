@@ -89,7 +89,7 @@
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a href="{{route('product.details',['slug'=>$product->slug])}}">
-                                                <img class="default-img"   src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
+                                                <img class="default-img"   src="{{asset('/assets/imgs/products/')}}/{{$product->image}}" alt="{{$product->name}}">
                                                 <img class="hover-img" s src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
                                             </a>
                                         </div>
