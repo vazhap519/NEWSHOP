@@ -33,7 +33,7 @@
                                 @if(Session::has('message'))
                                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                 @endif
-                                <form wire:submit.prevent="AddSlide()">
+                                <form wire:submit.prevent="editSlide()">
                                     <div class="mb-3 mt-3">
                                         <label for="top_title" class="form-control">ზედა_აღწერა</label>
                                         <input type="text" name="top_title" placeholder="ჩაწერე სლაიდის ზედა_აღწერა " wire:model="top_title">

@@ -5151,7 +5151,7 @@ h6.post-title {
   display: flex;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
-  justify-content: flex-end;
+
 }
 
 .header-info > ul {
@@ -5270,6 +5270,7 @@ h6.post-title {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+
 }
 
 .header-wrap .header-nav {
@@ -5589,6 +5590,7 @@ h6.post-title {
 
 .header-middle-ptb-1 {
   padding: 25px 0 0 0;
+    background-color: #f7f8f9;
 }
 
 .cart-dropdown-wrap {
@@ -9213,6 +9215,13 @@ span.fi-rs-apps {
   }
   .header-style-5 .header-bottom {
     padding: 5px 0;
+
+  }
+    .header-bottom.header-bottom-bg-color{
+        height: 30px;
+    }
+    .bgChange{
+      background-color: #f7f8f9!important;
   }
   .cart-dropdown-wrap {
     width: 290px;

@@ -9,6 +9,7 @@
                 </div>
             </div>
         </div>
+
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
@@ -16,50 +17,82 @@
                         <div class="product-detail accordion-detail">
                             <div class="row mb-50">
                                 <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="detail-gallery">
-                                        <span class="zoom-icon"><i class="fi-rs-search"></i></span>
-                                        <!-- MAIN SLIDES -->
-                                        <div class="product-image-slider">
-                                            <figure class="border-radius-10">
-                                                <li class="product-image-slider_li">
+{{--                                    <div class="detail-gallery">--}}
+{{--                                        <span class="zoom-icon"><i class="fi-rs-search"></i></span>--}}
+{{--                                        <!-- MAIN SLIDES -->--}}
+{{--                                        <div class="product-image-slider">--}}
+{{--                                            <div class="detail-gallery">--}}
+{{--                                                <span class="zoom-icon"><i class="fi-rs-search"></i></span>--}}
+{{--                                                <!-- MAIN SLIDES -->--}}
+{{--                                                <div class="product-image-slider">--}}
+{{--                                                    <figure class="border-radius-10">--}}
+{{--                                                        <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}" />--}}
+{{--                                                    </figure>--}}
+
+{{--                                                </div>--}}
+
+{{--                                        </div>--}}
+{{--                                        <!-- THUMBNAILS -->--}}
+
+
+{{--                                            <ul class="slider-nav-thumbnails pl-15 pr-15 thumbn">--}}
+
+{{--                                                @php--}}
+{{--                                                    $images = explode(",",$product->images);--}}
+
+{{--                                                @endphp--}}
+
+{{--                                                @foreach($images as $image)--}}
+
+{{--                                                    @if($image)--}}
+{{--                                                        <li data-thumb="{{asset('/assets/imgs/products/products_gallery')}}/{{$image}}">--}}
+{{--                                                            <img src="{{asset('/assets/imgs/products/products_gallery')}}/{{$image}}">--}}
+{{--                                                        </li>--}}
+{{--                                                    @endif--}}
+{{--                                                @endforeach--}}
+
+{{--                                            </ul>--}}
+
+
+{{--                                    <!-- End Gallery -->--}}
+{{--                                    <div class="social-icons single-share">--}}
+{{--                                        <ul class="text-grey-5 d-inline-block">--}}
+{{--                                            <li><strong class="mr-10">Share this:</strong></li>--}}
+{{--                                            <li class="social-facebook"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-facebook.svg')}}" alt=""></a></li>--}}
+{{--                                            <li class="social-twitter"> <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-twitter.svg')}}" alt=""></a></li>--}}
+{{--                                            <li class="social-instagram"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-instagram.svg')}}" alt=""></a></li>--}}
+{{--                                            <li class="social-linkedin"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-pinterest.svg')}}" alt=""></a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+
+
+
+
+
+{{--                                    </div>--}}
+                                        <div class="detail-gallery">
+                                            <span class="zoom-icon"><i class="fi-rs-search"></i></span>
+                                            <!-- MAIN SLIDES -->
+                                            <div class="product-image-slider">
+                                                <figure class="border-radius-10">
                                                     <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}" />
-                                                </li>
-                                            </figure>
+                                                </figure>
 
+                                            </div>
+                                            <!-- THUMBNAILS -->
+                                            <div class="slider-nav-thumbnails pl-15 pr-15">
+                                                @php $images = explode(",",$product->images);@endphp
+                                                                                                @foreach($images as $image)
+                                                                                                    @if($image)
+                                                        <div>  <img src="{{asset('/assets/imgs/products')}}/{{$image}}"></div>
+                                                                                                    @endif
+                                                                                                @endforeach
+
+                                            </div>
                                         </div>
-                                        <!-- THUMBNAILS -->
-                                        <ul class="slider-nav-thumbnails pl-15 pr-15 thumbn">
-
-                                            @php
-                                                $images = explode(",",$product->images);
-
-                                            @endphp
-
-                                            @foreach($images as $image)
-
-                                                @if($image)
-                                                    <li data-thumb="{{asset('/assets/imgs/products/products_gallery')}}/{{$image}}">
-                                                        <img src="{{asset('/assets/imgs/products/products_gallery')}}/{{$image}}">
-                                                    </li>
-                                                @endif
-                                            @endforeach
-
-                                        </ul>
-
-                                    </div>
-
-
-                                    <!-- End Gallery -->
-                                    <div class="social-icons single-share">
-                                        <ul class="text-grey-5 d-inline-block">
-                                            <li><strong class="mr-10">Share this:</strong></li>
-                                            <li class="social-facebook"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-facebook.svg')}}" alt=""></a></li>
-                                            <li class="social-twitter"> <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-twitter.svg')}}" alt=""></a></li>
-                                            <li class="social-instagram"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-instagram.svg')}}" alt=""></a></li>
-                                            <li class="social-linkedin"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-pinterest.svg')}}" alt=""></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                        <!-- End Gallery -->
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="detail-info">
                                         <h2 class="title-detail">{{$product->name}}</h2>

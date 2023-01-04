@@ -47,7 +47,7 @@ $this->slide_id=$slide_id;
         $slide->offer=$this->offer;
         $slide->link=$this->link;
         if ($slide->newImage){
-            unlink('assets/imgs/slide/'.$slide->image);
+            unlink('assets/imgs/slider/'.$slide->image);
             $imageName=Carbon::now()->timestamp.'.'.$this->newImage->extension();
             $this->newImage->storeAs('slider',$imageName);
             $slide->image=$imageName;
