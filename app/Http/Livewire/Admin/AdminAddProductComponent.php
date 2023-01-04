@@ -78,10 +78,8 @@ $this->validate([
 
 if ($this->images){
     $imagesname='';
-
     foreach ($this->images as $key=>$image){
-
-        $imgName=Carbon::now()->timestamp.$key.'.'.$image->extension();
+        $imgName=Carbon::now()->timestamp. $key.'.'.$image->extension();
         $image->storeAs('products/products_gallery',$imgName);
         $imagesname=$imagesname.','.$imgName;
     }

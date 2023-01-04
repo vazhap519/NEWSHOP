@@ -72,26 +72,26 @@
 
 
 {{--                                    </div>--}}
-                                        <div class="detail-gallery">
+                                        <ul class="detail-gallery">
                                             <span class="zoom-icon"><i class="fi-rs-search"></i></span>
                                             <!-- MAIN SLIDES -->
-                                            <div class="product-image-slider">
-                                                <figure class="border-radius-10">
+                                            <ul class="product-image-slider">
+                                                <li class="border-radius-10">
                                                     <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}" />
-                                                </figure>
+                                                </li>
 
-                                            </div>
+                                            </ul>
                                             <!-- THUMBNAILS -->
-                                            <div class="slider-nav-thumbnails pl-15 pr-15">
+                                            <ul class="slider-nav-thumbnails pl-15 pr-15">
                                                 @php $images = explode(",",$product->images);@endphp
                                                                                                 @foreach($images as $image)
                                                                                                     @if($image)
-                                                        <div>  <img src="{{asset('/assets/imgs/products')}}/{{$image}}"></div>
+                                                        <li>  <img src="{{asset('/assets/imgs/products')}}/{{$product->image}}"></li>
                                                                                                     @endif
                                                                                                 @endforeach
 
-                                            </div>
-                                        </div>
+                                            </ul>
+                                        </ul>
                                         <!-- End Gallery -->
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="detail-info">
