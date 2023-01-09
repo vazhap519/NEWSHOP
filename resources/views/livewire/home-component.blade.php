@@ -86,7 +86,7 @@
                             <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">ახალ დამატებული</button>
                         </li>
                     </ul>
-                    <a href="#" class="view-more d-none d-md-flex">View More<i class="fi-rs-angle-double-small-right"></i></a>
+                    <a href="{{route('shop')}}" class="view-more d-none d-md-flex">გააგრძელე ნახვა<i class="fi-rs-angle-double-small-right"></i></a>
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content wow fadeIn animated" id="myTabContent">
@@ -778,54 +778,15 @@
                 <div class="carausel-6-columns-cover position-relative">
                     <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows"></div>
                     <div class="carausel-6-columns" id="carausel-6-columns">
-                        <div class="card-1">
+                        @foreach($categoriesWimages as $categoryimage)
+                        
+                    <div class="card-1">
                             <figure class=" img-hover-scale overflow-hidden">
-                                <a href="shop.html"><img src="assets/imgs/shop/category-thumb-1.jpg" alt=""></a>
+                                <a href="shop.html"><img src="{{assets('imgs/category_image')}}/{{$image}}" alt=""></a>
                             </figure>
-                            <h5><a href="shop.html">T-Shirt</a></h5>
+                            <h5><a href="shop.html">{{$categoryimage->name}}</a></h5>
                         </div>
-                        <div class="card-1">
-                            <figure class=" img-hover-scale overflow-hidden">
-                                <a href="shop.html"> <img src="assets/imgs/shop/category-thumb-2.jpg" alt=""></a>
-                            </figure>
-                            <h5><a href="shop.html">Bags</a></h5>
-                        </div>
-                        <div class="card-1">
-                            <figure class=" img-hover-scale overflow-hidden">
-                                <a href="shop.html"><img src="assets/imgs/shop/category-thumb-3.jpg" alt=""></a>
-                            </figure>
-                            <h5><a href="shop.html">Sandan</a></h5>
-                        </div>
-                        <div class="card-1">
-                            <figure class=" img-hover-scale overflow-hidden">
-                                <a href="shop.html"><img src="assets/imgs/shop/category-thumb-4.jpg" alt=""></a>
-                            </figure>
-                            <h5><a href="shop.html">Scarf Cap</a></h5>
-                        </div>
-                        <div class="card-1">
-                            <figure class=" img-hover-scale overflow-hidden">
-                                <a href="shop.html"><img src="assets/imgs/shop/category-thumb-5.jpg" alt=""></a>
-                            </figure>
-                            <h5><a href="shop.html">Shoes</a></h5>
-                        </div>
-                        <div class="card-1">
-                            <figure class=" img-hover-scale overflow-hidden">
-                                <a href="shop.html"><img src="assets/imgs/shop/category-thumb-6.jpg" alt=""></a>
-                            </figure>
-                            <h5><a href="shop.html">Pillowcase</a></h5>
-                        </div>
-                        <div class="card-1">
-                            <figure class=" img-hover-scale overflow-hidden">
-                                <a href="shop.html"><img src="assets/imgs/shop/category-thumb-7.jpg" alt=""></a>
-                            </figure>
-                            <h5><a href="shop.html">Jumpsuits</a></h5>
-                        </div>
-                        <div class="card-1">
-                            <figure class=" img-hover-scale overflow-hidden">
-                                <a href="shop.html"><img src="assets/imgs/shop/category-thumb-8.jpg" alt=""></a>
-                            </figure>
-                            <h5><a href="shop.html">Hats</a></h5>
-                        </div>
+                   @endforeach
                     </div>
                 </div>
             </div>
@@ -837,9 +798,9 @@
                         <div class="banner-img wow fadeIn animated">
                             <img src="assets/imgs/banner/banner-1.png" alt="">
                             <div class="banner-text">
-                                <span>Smart Offer</span>
-                                <h4>Save 20% on <br>Woman Bag</h4>
-                                <a href="shop.html"> <i class="fi-rs-arrow-right"></i></a>
+                                <span>ჭკვიანური არჩევანი</span>
+                                <h4>დაზოგე 20%  <br>ქალის ჩანთა</h4>
+                                <a href="{{route('shop')}}"> <i class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -847,7 +808,7 @@
                         <div class="banner-img wow fadeIn animated">
                             <img src="assets/imgs/banner/banner-2.png" alt="">
                             <div class="banner-text">
-                                <span>Sale off</span>
+                                <span>ფასდაკლებები</span>
                                 <h4>Great Summer <br>Collection</h4>
                                 <a href="shop.html">შეიძინე ახლავე <i class="fi-rs-arrow-right"></i></a>
                             </div>
@@ -858,7 +819,7 @@
                             <img src="assets/imgs/banner/banner-3.png" alt="">
                             <div class="banner-text">
                                 <span>ბოლოს დამატებული პროდუქტები</span>
-                                <h4>Shop Today’s <br>Deals & Offers</h4>
+                                <h4>შეუკვეთე დღესვე <br>გარიგებები და შეთავაზებები</h4>
                                 <a href="shop.html">შეიძინე ახლავე <i class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
