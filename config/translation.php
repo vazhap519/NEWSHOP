@@ -11,7 +11,7 @@ return [
     | Supported: "file", "database"
     |
     */
-    'driver' => 'database',
+    'driver' => 'database','file',
 
     /*
     |--------------------------------------------------------------------------
