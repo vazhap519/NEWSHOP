@@ -3,9 +3,9 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Home</a>
-                    <span></span> Shop
-                    <span></span> Your Cart
+                    <a href="index.html" rel="nofollow">მთავარი</a>
+                    <span></span> მაღაზია
+                    <span></span> კალათა
                 </div>
             </div>
         </div>
@@ -18,12 +18,12 @@
                             <table class="table shopping-summery text-center clean">
                                 <thead>
                                 <tr class="main-heading">
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Subtotal</th>
-                                    <th scope="col">Remove</th>
+                                    <th scope="col">სურათი</th>
+                                    <th scope="col">სახელი</th>
+                                    <th scope="col">ფასი</th>
+                                    <th scope="col">საოდენობა</th>
+                                    <th scope="col">ჯამი</th>
+                                    <th scope="col">წაშლა</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -63,23 +63,23 @@
                                 @endforeach
                                 <tr>
                                     <td colspan="6" class="text-end">
-                                        <a href="#" class="text-muted" wire:click.prevent="ClearAll()"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
+                                        <a href="#" class="text-muted" wire:click.prevent="ClearAll()"> <i class="fi-rs-cross-small"></i> კალათის გასუფთავება</a>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="cart-action text-end">
-                            <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a>
-                            <a class="btn "><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
+                            <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>კალათის განახლება</a>
+                            <a class="btn "><i class="fi-rs-shopping-bag mr-10"></i>განაგრძე ყიდვა</a>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
                         <div class="row mb-50">
                             <div class="col-lg-6 col-md-12">
                                 <div class="heading_s1 mb-3">
-                                    <h4>Calculate Shipping</h4>
+                                    <h4>მიწოდების საფასურის გამოთვლა</h4>
                                 </div>
-                                <p class="mt-15 mb-30">Flat rate: <span class="font-xl text-brand fw-900">5%</span></p>
+                                <p class="mt-15 mb-30">სტანდარტული ღირებულება <span class="font-xl text-brand fw-900">5%</span></p>
                                 <form class="field_form shipping_calculator">
                                     <div class="form-row">
                                         <div class="form-group col-lg-12">
