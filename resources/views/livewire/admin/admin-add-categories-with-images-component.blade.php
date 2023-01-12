@@ -48,12 +48,12 @@
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-                                  
-                                  
-                                
+
+
+
 
                                     <div class="mb-3 mt-3">
-                                        <label for="status" class="form-control">სლაიდის სურათი </label>
+                                        <label for="image" class="form-control">სლაიდის სურათი </label>
                                  <input type="file" name="image" wire:model="image">
 @if($image)
     <img src="{{$image->temporaryUrl()}}" width="100px">
@@ -62,7 +62,7 @@
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-                              
+
                                     <button type="submit" class="btn btn-primary float-end">სლაიდის  შექმნა</button>
                                 </form>
                             </div>

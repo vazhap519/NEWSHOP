@@ -45,6 +45,9 @@ Route::middleware(['auth','authAdmin'])->group(function (){
     Route::get('/admin/slider/edit/{slide_id}',\App\Http\Livewire\Admin\AdminEditHomeSliderComponent::class)->name('admin.home.slider.edit');
 Route::get('/admin/categories-with-images',\App\Http\Livewire\Admin\AdminCategoriesWithImagesComponent::class)->name('admin.categories.with.images');
 
+Route::get('/admin/features',\App\Http\Livewire\Admin\AdminFeaturesBrandsComponent::class)->name('admin.brends');
+Route::get('/admin/features/add',\App\Http\Livewire\Admin\AdminAddFeaturesBrandsComponent::class)->name('admin.brads.add');
+
 });
 
 

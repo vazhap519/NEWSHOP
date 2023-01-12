@@ -112,6 +112,7 @@
                                             <li><a href="{{route('admin.categories')}}">კატეგორიები</a></li>
                                             <li><a href="{{route('admin.home.slider')}}">სლაიდები</a></li>
                                             <li><a href="{{route('admin.categories.with.images')}}">სურათიანი კატეგორიები</a></li>
+                                            <li><a href="{{route('admin.brends')}}">სამომავლო ბრენდები</a></li>
                                             <li><a href="#">Logout</a></li>
                                         </ul>
                                             @else
